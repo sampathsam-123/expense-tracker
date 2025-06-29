@@ -1,9 +1,6 @@
 services:
   - type: web
     name: expense-tracker
-    buildCommand: "./mvnw clean package -DskipTests"
-    startCommand: "java -jar target/*.jar"
-    envVars:
-      - key: JAVA_VERSION
-        value: 17
+    runtime: docker          # use Docker runtime
+    dockerfilePath: ./Dockerfile
     plan: free

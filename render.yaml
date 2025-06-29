@@ -1,7 +1,10 @@
 services:
   - type: web
     name: expense-tracker
-    runtime: node # TEMPORARY workaround
+    env: java
     buildCommand: "./mvnw clean package -DskipTests"
     startCommand: "java -jar target/*.jar"
+    envVars:
+      - key: JAVA_HOME
+        value: /opt/render/project/.jdk
     plan: free
